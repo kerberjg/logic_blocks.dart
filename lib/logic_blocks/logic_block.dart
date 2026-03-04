@@ -1,6 +1,6 @@
 import 'dart:async';
 
-import 'package:collections/collections.dart';
+import 'package:logic_blocks/collections.dart';
 import 'package:meta/meta.dart';
 
 part 'context.dart';

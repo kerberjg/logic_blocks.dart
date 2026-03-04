@@ -1,4 +1,4 @@
 /// Human-friendly hierarchical state machines.
 library;
 
-export 'src/logic_block.dart';
+export 'logic_blocks/logic_block.dart';

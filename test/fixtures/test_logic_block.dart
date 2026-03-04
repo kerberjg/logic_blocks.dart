@@ -1,7 +1,7 @@
 // Test models.
 // ignore_for_file: hash_and_equals
 
-import 'package:collections/collections.dart';
+import 'package:logic_blocks/collections.dart';
 import 'package:equatable/equatable.dart';
 import 'package:logic_blocks/logic_blocks.dart';
 
