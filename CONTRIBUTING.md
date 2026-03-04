@@ -76,7 +76,7 @@ If you discover a security issue, please **do not** open a public issue.
 
 Instead, report it privately to the maintainer(s)!
 
-![contributors badge](https://readme-contribs.as93.net/contributors/kerberjg/dart_package_template?textColor=888888)
+![contributors badge](https://readme-contribs.as93.net/contributors/kerberjg/logic_blocks.dart?textColor=888888)
 
 ## Licensing of contributions
 

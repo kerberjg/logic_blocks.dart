@@ -1,16 +1,26 @@
-include: package:lints/recommended.yaml
+include: package:very_good_analysis/analysis_options.yaml
 
 analyzer:
   exclude:
     - build/**
     - lib/**.g.dart
+  enable-experiment:
+    - macros
   strong-mode:
     implicit-casts: false
     implicit-dynamic: false
+  language:
+    strict-raw-types: true
   errors:
     unused_import: warning
     dead_code: warning
     public_member_api_docs: error
+    one_member_abstracts: ignore
+    avoid_equals_and_hash_code_on_mutable_classes: ignore
+    use_string_in_part_of_directives: ignore
+    use_setters_to_change_properties: ignore
+    implements_repeated: ignore
+    use_to_and_as_if_applicable: ignore
 
 lints:
   - public_member_api_docs
