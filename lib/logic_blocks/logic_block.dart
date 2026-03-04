@@ -368,7 +368,6 @@ abstract base class LogicBlock<TState extends StateLogic<TState>>
       _transition.._transition(TStateType);
 
   @override
-  @internal
   void handleGenericQueueItem<TInput extends Object>(
     GenericQueue queue,
     TInput input,
@@ -390,7 +389,9 @@ abstract base class LogicBlock<TState extends StateLogic<TState>>
     _changeState(state);
   }
 
-  @internal
+  @visibleForTesting
+  // Restores the logic block's state without going through the normal lifecycle
+  // ignore: public_member_api_docs
   void restoreState(Object state) {
     if (_value != null) {
       throw StateError(
