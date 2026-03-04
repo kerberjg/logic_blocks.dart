@@ -1,4 +1,4 @@
-import 'package:collections/collections.dart';
+import 'package:logic_blocks/collections.dart';
 import 'package:test/test.dart';
 
 class TestListHandler implements GenericListHandler<String> {

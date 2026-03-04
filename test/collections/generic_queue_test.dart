@@ -1,7 +1,7 @@
 // For clarity.
 // ignore_for_file: cascade_invocations
 
-import 'package:collections/collections.dart';
+import 'package:logic_blocks/collections.dart';
 import 'package:test/test.dart';
 
 class TestQueueHandler implements GenericQueueHandler {

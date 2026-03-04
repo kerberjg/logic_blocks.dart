@@ -1,4 +1,4 @@
-import 'package:collections/src/callbacks.dart';
+import 'callbacks.dart';
 
 /// Handler invoked for each item in a [GenericList] during iteration.
 abstract interface class GenericListHandler<TItem> {
