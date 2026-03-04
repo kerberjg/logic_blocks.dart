@@ -1,17 +1,23 @@
-name: dart_package_template
-description: A pub.dev-ready Dart package template with recommended settings.
-version: 0.1.0
+name: logic_blocks
+description: Human-friendly hierarchical state machines for Dart.
+version: 1.0.0
 
 license: MPL-2.0
-homepage: https://github.com/kerberjg/dart_package_template
-repository: https://github.com/kerberjg/dart_package_template
-issue_tracker: https://github.com/kerberjg/dart_package_template/issues
+homepage: https://github.com/kerberjg/logic_blocks.dart
+repository: https://github.com/kerberjg/logic_blocks.dart
+issue_tracker: https://github.com/kerberjg/logic_blocks.dart/issues
 
 environment:
-  sdk: '>=3.0.0 <4.0.0'
+  sdk: ">=3.5.0 <4.0.0"
 
 dependencies:
+  collections:
+    path: ../collections
+  meta: ^1.16.0
 
 dev_dependencies:
-  lints: ^6.0.0
-  test: ^1.16.0
+  equatable: ^2.0.5
+  mocktail: ^1.0.4
+  test: ^1.25.8
+  test_coverage_badge: ^0.3.2
+  very_good_analysis: ^10.1.0
