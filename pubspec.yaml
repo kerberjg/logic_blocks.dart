@@ -1,5 +1,5 @@
 name: logic_blocks
-description: Human-friendly hierarchical state machines for Dart.
+description: Human-friendly hierarchical state machines - ported to Dart from Chickensoft's C# LogicBlocks library.
 version: 1.0.0
 
 license: MPL-2.0
