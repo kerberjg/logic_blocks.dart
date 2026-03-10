@@ -13,42 +13,42 @@ part of 'logic_block.dart';
 ///
 /// Inputs are delivered even if the originating state has been replaced
 /// (detached), because async work should not be lost on state transitions.
+/// Whatever state is active when the future completes will receive the input.
 class StatefulFuture<T> {
   StatefulFuture._(this._adapter, Future<T> future) {
     final continuation = future.then(
-      (value) {
-        final cb = _onSuccess;
-        if (cb != null) _inputIfRunning(cb(value));
-      },
-      onError: (Object error) {
-        final cb = _onError;
-        if (cb != null) _inputIfRunning(cb(error));
-      },
+      (value) => _onSuccess?.call(value),
+      onError: (Object error) => _onError?.call(error),
     );
 
     _adapter.trackFuture(continuation);
   }
 
-  void _inputIfRunning(Object input) {
+  /// Delivers [input] to the logic block, preserving its generic type.
+  void _inputIfRunning<TInput extends Object>(TInput input) {
     if (!_adapter.isStarted) return;
-    _adapter.context!.input(input);
+    _adapter.context!.input<TInput>(input);
   }
 
   final _ContextAdapter _adapter;
-  Object Function(T)? _onSuccess;
-  Object Function(Object)? _onError;
+  void Function(T)? _onSuccess;
+  void Function(Object)? _onError;
 
   /// Registers a callback that converts the future's success value into an
   /// input for the logic block.
-  StatefulFuture<T> input(Object Function(T value) toInput) {
-    _onSuccess = toInput;
+  StatefulFuture<T> input<TInput extends Object>(
+    TInput Function(T value) toInput,
+  ) {
+    _onSuccess = (value) => _inputIfRunning<TInput>(toInput(value));
     return this;
   }
 
   /// Registers a callback that converts the future's error into an input
   /// for the logic block.
-  StatefulFuture<T> errorInput(Object Function(Object error) toInput) {
-    _onError = toInput;
+  StatefulFuture<T> errorInput<TInput extends Object>(
+    TInput Function(Object error) toInput,
+  ) {
+    _onError = (error) => _inputIfRunning<TInput>(toInput(error));
     return this;
   }
 }
