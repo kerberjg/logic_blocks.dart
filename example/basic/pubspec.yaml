@@ -1,0 +1,9 @@
+name: logic_blocks_basic_example
+publish_to: none
+
+environment:
+  sdk: ">=3.5.0 <4.0.0"
+
+dependencies:
+  logic_blocks:
+    path: ../..

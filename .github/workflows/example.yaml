@@ -1,27 +1,29 @@
 name: "example"
 
 on:
-  # pull_request:
-  # push:
-  #   branches:
-  #     - main
-  #     - develop
-  #     - 'release/**'
-  #   paths:
-  #     - 'example/**/*.dart'
-  #     - 'example/**/*.yaml'
-  #     - .github/workflows/_base-dart.yaml
-  #     - .github/workflows/_base-flutter.yaml
-  #     - .github/workflows/example.yaml
-  # release:
-  #   types: [published]
+  pull_request:
+    paths:
+      - "example/**/*.dart"
+      - "example/**/*.yaml"
+      - .github/workflows/example.yaml
+  push:
+    branches:
+      - main
+      - develop
+      - "release/**"
+    paths:
+      - "example/**/*.dart"
+      - "example/**/*.yaml"
+      - .github/workflows/example.yaml
+  release:
+    types: [published]
   workflow_dispatch:
 
 jobs:
   logic_blocks:
     strategy:
       matrix:
-        example: [basic, advanced_example]
+        example: [basic]
     name: "${{ matrix.example }}"
     uses: kerberjg/dart_flutter_ci_experiments/.github/workflows/pipeline.yaml@8ad47932f2fb94ccc84ae69f1057bf446454fb0e
     with:
